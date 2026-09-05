@@ -1,24 +1,974 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Raj University | Learn boldly. Lead meaningfully.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/app.css"><link rel="stylesheet" href="assets/landing.css">
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Raj University - Learn boldly. Lead meaningfully.">
+
+    <title>Raj University | Learn boldly. Lead meaningfully.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- Application CSS -->
+    <link rel="stylesheet" href="assets/app.css">
+    <link rel="stylesheet" href="assets/landing.css">
 </head>
+
 <body class="university-home">
-  <div class="utility-bar"><div class="utility-inner"><span>RAJ UNIVERSITY · EST. 1998</span><div><a href="contact.jsp">Help desk</a><a href="placement.jsp">Alumni</a><a href="student.jsp">Student portal ↗</a></div></div></div>
-  <header class="university-header"><a class="university-brand" href="index.jsp"><span class="brand-mark">R</span><span><strong>RAJ</strong><small>UNIVERSITY</small></span></a><nav class="university-nav" id="site-navigation"><a href="#discover">Discover Raj</a><a href="#academics">Academics</a><a href="#campus">Campus life</a><a href="Register.jsp">Admissions</a></nav><div class="header-actions"><a class="header-outline" href="student.jsp">Student login</a><a class="header-cta" href="Register.jsp">Apply now <span>↗</span></a></div><button class="home-menu" aria-label="Open menu" aria-expanded="false">☰</button></header>
-  <main>
-    <section class="university-hero"><div class="hero-image"><div class="image-caption"><span>01 / 03</span><b>Learning that moves with the world.</b></div></div><div class="hero-copy"><span class="eyebrow light-eyebrow">WELCOME TO RAJ</span><h1>Make your<br><em>mark here.</em></h1><p>At Raj University, ambition meets opportunity. Build the knowledge, confidence, and community to shape what comes next.</p><div class="hero-actions"><a class="hero-primary" href="Register.jsp">Explore admissions <span>→</span></a><a class="hero-secondary" href="#discover">See why Raj <span>↓</span></a></div><div class="hero-facts"><div><strong>25+</strong><span>years of<br>excellence</span></div><div><strong>40K</strong><span>alumni<br>worldwide</span></div><div><strong>92%</strong><span>placed within<br>six months</span></div></div></div></section>
-    <section class="intro-section" id="discover"><div class="section-kicker"><span>01</span><span>DISCOVER RAJ</span></div><div class="intro-grid"><h2>A university for<br><em>the curious.</em></h2><div><p class="large-copy">The best education does more than prepare you for a career. It changes how you see the world and your place in it.</p><p class="muted-copy">From our first classroom to your first big idea, Raj gives you the space, support, and spark to go further.</p><a class="arrow-link" href="information.jsp">Our story <span>↗</span></a></div></div><div class="stat-line"><div><strong>18</strong><span>undergraduate<br>programs</span></div><div><strong>12:1</strong><span>student to faculty<br>ratio</span></div><div><strong>48</strong><span>student clubs<br>and communities</span></div><div><strong>24/7</strong><span>library and<br>learning spaces</span></div></div></section>
-    <section class="program-section" id="academics"><div class="section-heading-modern"><div><span class="section-number">02</span><span class="eyebrow">FIND YOUR DIRECTION</span><h2>Learn with purpose.</h2></div><a class="section-button" href="Register.jsp">View all programs <span>→</span></a></div><div class="program-grid"><a class="program-card program-featured" href="Register.jsp"><span class="program-index">01</span><div><small>COMPUTING &amp; TECHNOLOGY</small><h3>Build what<br>comes next.</h3><span class="program-arrow">↗</span></div></a><a class="program-card program-business" href="Register.jsp"><span class="program-index">02</span><div><small>BUSINESS &amp; MANAGEMENT</small><h3>Think bigger.<br>Lead better.</h3><span class="program-arrow">↗</span></div></a><a class="program-card program-humanities" href="Register.jsp"><span class="program-index">03</span><div><small>HUMANITIES &amp; SCIENCES</small><h3>Ask better<br>questions.</h3><span class="program-arrow">↗</span></div></a></div></section>
-    <section class="campus-section" id="campus"><div class="campus-photo"><span class="photo-label">THE RAJ EXPERIENCE</span></div><div class="campus-copy"><span class="section-number">03</span><span class="eyebrow">MORE THAN A CAMPUS</span><h2>Find your<br><em>people.</em></h2><p>Join a community that celebrates different perspectives, shared effort, and the small moments that become lifelong memories.</p><a class="arrow-link" href="images.jsp">Explore campus life <span>↗</span></a><div class="quote"><span>“</span><p>Raj gave me more than a degree. It gave me the courage to start.</p><small>— Ananya Sharma, BCA '24</small></div></div></section>
-    <section class="news-section"><div class="section-heading-modern"><div><span class="section-number">04</span><span class="eyebrow">FROM THE UNIVERSITY</span><h2>What's happening.</h2></div><a class="section-button light-section-button" href="placement.jsp">All stories <span>→</span></a></div><div class="news-grid"><article><div class="news-image news-one"></div><span class="news-type">CAMPUS · 04 SEP 2026</span><h3>Raj students take the lead at the National Innovation Challenge.</h3><a class="story-button" href="information.jsp">Read story ↗</a></article><article><div class="news-image news-two"></div><span class="news-type">OUTCOMES · 28 AUG 2026</span><h3>Our graduates are building the future across 14 industries.</h3><a class="story-button" href="placement.jsp">Read story ↗</a></article><article class="events-list"><span class="news-type">UP NEXT</span><div><b>12 SEP</b><p>Open house<br><small>10:00 AM · Main auditorium</small></p></div><div><b>18 SEP</b><p>Career connect<br><small>2:00 PM · Innovation hall</small></p></div><a class="story-button" href="contact.jsp">View events ↗</a></article></div></section>
-  </main>
-  <footer class="university-footer"><div class="footer-top"><a class="university-brand" href="index.jsp"><span class="brand-mark">R</span><span><strong>RAJ</strong><small>UNIVERSITY</small></span></a><p>Learn boldly.<br>Lead meaningfully.</p><a class="footer-apply" href="Register.jsp">Start your application <span>↗</span></a></div><div class="footer-bottom"><span>© 2026 Raj University. All rights reserved.</span><div><a href="contact.jsp">Contact</a><a href="information.jsp">Information</a><a href="student.jsp">Student portal</a></div><span>Jaipur · India</span></div></footer>
-  <script>const menu=document.querySelector('.home-menu');const nav=document.querySelector('.university-nav');menu.addEventListener('click',()=>{const open=nav.classList.toggle('is-open');menu.setAttribute('aria-expanded',open);menu.textContent=open?'×':'☰'});nav.querySelectorAll('a').forEach(link=>link.addEventListener('click',()=>{nav.classList.remove('is-open');menu.setAttribute('aria-expanded','false');menu.textContent='☰'}));</script>
+
+    <!-- =========================================================
+         UTILITY BAR
+    ========================================================== -->
+    <div class="utility-bar">
+
+        <div class="utility-inner">
+
+            <span>RAJ UNIVERSITY · EST. 1998</span>
+
+            <div class="utility-links">
+                <a href="contact.jsp">Help desk</a>
+                <a href="placement.jsp">Alumni</a>
+                <a href="student.jsp">Student portal ↗</a>
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         HEADER
+    ========================================================== -->
+    <header class="university-header">
+
+        <a class="university-brand" href="index.jsp">
+
+            <span class="brand-mark">R</span>
+
+            <span class="brand-name">
+                <strong>RAJ</strong>
+                <small>UNIVERSITY</small>
+            </span>
+
+        </a>
+
+
+        <nav class="university-nav" id="site-navigation">
+
+            <a href="#discover">Discover Raj</a>
+
+            <a href="#academics">Academics</a>
+
+            <a href="#campus">Campus life</a>
+
+            <a href="Register.jsp">Admissions</a>
+
+        </nav>
+
+
+        <div class="header-actions">
+
+            <a class="header-outline"
+               href="student.jsp">
+                Student login
+            </a>
+
+            <a class="header-cta"
+               href="Register.jsp">
+                Apply now <span>↗</span>
+            </a>
+
+        </div>
+
+
+        <button class="home-menu"
+                id="menuButton"
+                aria-label="Open navigation menu"
+                aria-expanded="false">
+
+            ☰
+
+        </button>
+
+    </header>
+
+
+    <!-- =========================================================
+         MAIN CONTENT
+    ========================================================== -->
+    <main>
+
+
+        <!-- =====================================================
+             HERO SECTION
+        ====================================================== -->
+        <section class="university-hero">
+
+            <div class="hero-image"
+                 id="heroImage"
+                 role="img"
+                 aria-label="Raj University campus">
+
+                <div class="image-overlay"></div>
+
+                <div class="image-caption">
+
+                    <span id="heroCounter">
+                        01 / 06
+                    </span>
+
+                    <b>
+                        Learning that moves with the world.
+                    </b>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-copy">
+
+                <span class="eyebrow light-eyebrow">
+                    WELCOME TO RAJ
+                </span>
+
+                <h1>
+                    Make your
+                    <br>
+                    <em>mark here.</em>
+                </h1>
+
+                <p>
+                    At Raj University, ambition meets opportunity.
+                    Build the knowledge, confidence, and community
+                    to shape what comes next.
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a class="hero-primary"
+                       href="Register.jsp">
+
+                        Explore admissions
+                        <span>→</span>
+
+                    </a>
+
+
+                    <a class="hero-secondary"
+                       href="#discover">
+
+                        See why Raj
+                        <span>↓</span>
+
+                    </a>
+
+                </div>
+
+
+                <div class="hero-facts">
+
+                    <div>
+                        <strong>25+</strong>
+                        <span>
+                            years of<br>
+                            excellence
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>40K</strong>
+                        <span>
+                            alumni<br>
+                            worldwide
+                        </span>
+                    </div>
+
+                    <div>
+                        <strong>92%</strong>
+                        <span>
+                            placed within<br>
+                            six months
+                        </span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             DISCOVER SECTION
+        ====================================================== -->
+        <section class="intro-section"
+                 id="discover">
+
+            <div class="section-kicker">
+
+                <span>01</span>
+
+                <span>DISCOVER RAJ</span>
+
+            </div>
+
+
+            <div class="intro-grid">
+
+                <h2>
+                    A university for
+                    <br>
+                    <em>the curious.</em>
+                </h2>
+
+
+                <div>
+
+                    <p class="large-copy">
+
+                        The best education does more than prepare
+                        you for a career. It changes how you see the
+                        world and your place in it.
+
+                    </p>
+
+
+                    <p class="muted-copy">
+
+                        From our first classroom to your first big
+                        idea, Raj gives you the space, support,
+                        and spark to go further.
+
+                    </p>
+
+
+                    <a class="arrow-link"
+                       href="information.jsp">
+
+                        Our story
+                        <span>↗</span>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="stat-line">
+
+                <div>
+                    <strong>18</strong>
+                    <span>
+                        undergraduate<br>
+                        programs
+                    </span>
+                </div>
+
+                <div>
+                    <strong>12:1</strong>
+                    <span>
+                        student to faculty<br>
+                        ratio
+                    </span>
+                </div>
+
+                <div>
+                    <strong>48</strong>
+                    <span>
+                        student clubs<br>
+                        and communities
+                    </span>
+                </div>
+
+                <div>
+                    <strong>24/7</strong>
+                    <span>
+                        library and<br>
+                        learning spaces
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             PROGRAMS
+        ====================================================== -->
+        <section class="program-section"
+                 id="academics">
+
+            <div class="section-heading-modern">
+
+                <div>
+
+                    <span class="section-number">
+                        02
+                    </span>
+
+                    <span class="eyebrow">
+                        FIND YOUR DIRECTION
+                    </span>
+
+                    <h2>
+                        Learn with purpose.
+                    </h2>
+
+                </div>
+
+
+                <a class="section-button"
+                   href="Register.jsp">
+
+                    View all programs
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+
+            <div class="program-grid">
+
+
+                <a class="program-card program-featured"
+                   href="Register.jsp">
+
+                    <span class="program-index">
+                        01
+                    </span>
+
+                    <div>
+
+                        <small>
+                            COMPUTING &amp; TECHNOLOGY
+                        </small>
+
+                        <h3>
+                            Build what
+                            <br>
+                            comes next.
+                        </h3>
+
+                        <span class="program-arrow">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <a class="program-card program-business"
+                   href="Register.jsp">
+
+                    <span class="program-index">
+                        02
+                    </span>
+
+                    <div>
+
+                        <small>
+                            BUSINESS &amp; MANAGEMENT
+                        </small>
+
+                        <h3>
+                            Think bigger.
+                            <br>
+                            Lead better.
+                        </h3>
+
+                        <span class="program-arrow">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </a>
+
+
+
+                <a class="program-card program-humanities"
+                   href="Register.jsp">
+
+                    <span class="program-index">
+                        03
+                    </span>
+
+                    <div>
+
+                        <small>
+                            HUMANITIES &amp; SCIENCES
+                        </small>
+
+                        <h3>
+                            Ask better
+                            <br>
+                            questions.
+                        </h3>
+
+                        <span class="program-arrow">
+                            ↗
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             CAMPUS
+        ====================================================== -->
+        <section class="campus-section"
+                 id="campus">
+
+
+            <div class="campus-photo"
+                 id="campusImage"
+                 role="img"
+                 aria-label="University campus">
+
+                <div class="image-overlay"></div>
+
+                <span class="photo-label">
+                    THE RAJ EXPERIENCE
+                </span>
+
+            </div>
+
+
+            <div class="campus-copy">
+
+                <span class="section-number">
+                    03
+                </span>
+
+                <span class="eyebrow">
+                    MORE THAN A CAMPUS
+                </span>
+
+
+                <h2>
+                    Find your
+                    <br>
+                    <em>people.</em>
+                </h2>
+
+
+                <p>
+
+                    Join a community that celebrates different
+                    perspectives, shared effort, and the small
+                    moments that become lifelong memories.
+
+                </p>
+
+
+                <a class="arrow-link"
+                   href="images.jsp">
+
+                    Explore campus life
+                    <span>↗</span>
+
+                </a>
+
+
+                <div class="quote">
+
+                    <span>“</span>
+
+                    <p>
+                        Raj gave me more than a degree.
+                        It gave me the courage to start.
+                    </p>
+
+                    <small>
+                        — Ananya Sharma, BCA '24
+                    </small>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             NEWS
+        ====================================================== -->
+        <section class="news-section">
+
+
+            <div class="section-heading-modern">
+
+                <div>
+
+                    <span class="section-number">
+                        04
+                    </span>
+
+                    <span class="eyebrow">
+                        FROM THE UNIVERSITY
+                    </span>
+
+                    <h2>
+                        What's happening.
+                    </h2>
+
+                </div>
+
+
+                <a class="section-button light-section-button"
+                   href="placement.jsp">
+
+                    All stories
+                    <span>→</span>
+
+                </a>
+
+            </div>
+
+
+            <div class="news-grid">
+
+
+                <article>
+
+                    <div class="news-image news-one"
+                         id="newsImage1"
+                         role="img"
+                         aria-label="University students">
+                    </div>
+
+                    <span class="news-type">
+                        CAMPUS · 04 SEP 2026
+                    </span>
+
+                    <h3>
+                        Raj students take the lead at the
+                        National Innovation Challenge.
+                    </h3>
+
+                    <a class="story-button"
+                       href="information.jsp">
+
+                        Read story ↗
+
+                    </a>
+
+                </article>
+
+
+
+                <article>
+
+                    <div class="news-image news-two"
+                         id="newsImage2"
+                         role="img"
+                         aria-label="University graduates">
+                    </div>
+
+                    <span class="news-type">
+                        OUTCOMES · 28 AUG 2026
+                    </span>
+
+                    <h3>
+                        Our graduates are building the future
+                        across 14 industries.
+                    </h3>
+
+                    <a class="story-button"
+                       href="placement.jsp">
+
+                        Read story ↗
+
+                    </a>
+
+                </article>
+
+
+
+                <article class="events-list">
+
+                    <span class="news-type">
+                        UP NEXT
+                    </span>
+
+
+                    <div>
+
+                        <b>12 SEP</b>
+
+                        <p>
+                            Open house
+                            <br>
+                            <small>
+                                10:00 AM · Main auditorium
+                            </small>
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <b>18 SEP</b>
+
+                        <p>
+                            Career connect
+                            <br>
+                            <small>
+                                2:00 PM · Innovation hall
+                            </small>
+                        </p>
+
+                    </div>
+
+
+                    <a class="story-button"
+                       href="contact.jsp">
+
+                        View events ↗
+
+                    </a>
+
+                </article>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+    <footer class="university-footer">
+
+
+        <div class="footer-top">
+
+
+            <a class="university-brand"
+               href="index.jsp">
+
+                <span class="brand-mark">
+                    R
+                </span>
+
+                <span class="brand-name">
+
+                    <strong>
+                        RAJ
+                    </strong>
+
+                    <small>
+                        UNIVERSITY
+                    </small>
+
+                </span>
+
+            </a>
+
+
+            <p>
+                Learn boldly.
+                <br>
+                Lead meaningfully.
+            </p>
+
+
+            <a class="footer-apply"
+               href="Register.jsp">
+
+                Start your application
+                <span>↗</span>
+
+            </a>
+
+        </div>
+
+
+        <div class="footer-bottom">
+
+            <span>
+                © 2026 Raj University.
+                All rights reserved.
+            </span>
+
+
+            <div>
+
+                <a href="contact.jsp">
+                    Contact
+                </a>
+
+                <a href="information.jsp">
+                    Information
+                </a>
+
+                <a href="student.jsp">
+                    Student portal
+                </a>
+
+            </div>
+
+
+            <span>
+                Jaipur · India
+            </span>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         RANDOM IMAGE + MENU JAVASCRIPT
+    ========================================================== -->
+    <script>
+
+        /*
+         * University image collection
+         *
+         * For production:
+         * Move these images to your own server/CDN.
+         */
+        const universityImages = [
+
+            "https://picsum.photos/seed/raj-campus-1/1800/1200",
+
+            "https://picsum.photos/seed/raj-campus-2/1800/1200",
+
+            "https://picsum.photos/seed/raj-campus-3/1800/1200",
+
+            "https://picsum.photos/seed/raj-campus-4/1800/1200",
+
+            "https://picsum.photos/seed/raj-campus-5/1800/1200",
+
+            "https://picsum.photos/seed/raj-campus-6/1800/1200"
+
+        ];
+
+
+        /*
+         * Keep track of the current image.
+         * This prevents the same image from being
+         * immediately selected again.
+         */
+        let currentImageIndex = -1;
+
+
+        /*
+         * Get a random image.
+         */
+        function getRandomImage() {
+
+            let newIndex;
+
+            do {
+
+                newIndex =
+                    Math.floor(
+                        Math.random() *
+                        universityImages.length
+                    );
+
+            } while (
+                newIndex === currentImageIndex &&
+                universityImages.length > 1
+            );
+
+            currentImageIndex = newIndex;
+
+            return universityImages[newIndex];
+
+        }
+
+
+        /*
+         * Change background image with a small fade effect.
+         */
+        function changeBackgroundImage(elementId) {
+
+            const element =
+                document.getElementById(elementId);
+
+            if (!element) {
+                return;
+            }
+
+
+            const image =
+                getRandomImage();
+
+
+            element.classList.add("image-changing");
+
+
+            setTimeout(function () {
+
+                element.style.backgroundImage =
+                    "url('" + image + "')";
+
+            }, 250);
+
+
+            setTimeout(function () {
+
+                element.classList.remove(
+                    "image-changing"
+                );
+
+            }, 500);
+
+        }
+
+
+        /*
+         * Load images when page opens.
+         */
+        function loadInitialImages() {
+
+            changeBackgroundImage("heroImage");
+
+            changeBackgroundImage("campusImage");
+
+            changeBackgroundImage("newsImage1");
+
+            changeBackgroundImage("newsImage2");
+
+        }
+
+
+        /*
+         * Change images automatically every 15 seconds.
+         */
+        function startImageRotation() {
+
+            setInterval(function () {
+
+                changeBackgroundImage("heroImage");
+
+                changeBackgroundImage("campusImage");
+
+                changeBackgroundImage("newsImage1");
+
+                changeBackgroundImage("newsImage2");
+
+            }, 15000);
+
+        }
+
+
+        /*
+         * Mobile navigation.
+         */
+        const menuButton =
+            document.getElementById("menuButton");
+
+        const navigation =
+            document.getElementById("site-navigation");
+
+
+        if (menuButton && navigation) {
+
+            menuButton.addEventListener(
+                "click",
+                function () {
+
+                    const isOpen =
+                        navigation.classList.toggle(
+                            "is-open"
+                        );
+
+
+                    menuButton.setAttribute(
+                        "aria-expanded",
+                        isOpen
+                    );
+
+
+                    menuButton.textContent =
+                        isOpen ? "×" : "☰";
+
+                }
+            );
+
+
+            navigation
+                .querySelectorAll("a")
+                .forEach(function (link) {
+
+                    link.addEventListener(
+                        "click",
+                        function () {
+
+                            navigation.classList.remove(
+                                "is-open"
+                            );
+
+                            menuButton.setAttribute(
+                                "aria-expanded",
+                                "false"
+                            );
+
+                            menuButton.textContent =
+                                "☰";
+
+                        }
+                    );
+
+                });
+
+        }
+
+
+        /*
+         * Start application.
+         */
+        document.addEventListener(
+            "DOMContentLoaded",
+            function () {
+
+                loadInitialImages();
+
+                startImageRotation();
+
+            }
+        );
+
+    </script>
+
 </body>
+
 </html>
