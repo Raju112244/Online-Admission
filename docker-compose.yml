@@ -1,21 +1,21 @@
 services:
 
   db:
-    image: mysql:8.0
+    image: mysql:8.0.43
     container_name: online-admission-db
     restart: unless-stopped
 
     environment:
       MYSQL_ROOT_PASSWORD: root123
-      MYSQL_DATABASE: online_admission
-      MYSQL_USER: admission
-      MYSQL_PASSWORD: admission123
+      MYSQL_DATABASE: admission
 
     ports:
       - "3306:3306"
 
     volumes:
       - mysql_data:/var/lib/mysql
+
+    entrypoint: ["/bin/bash", "/usr/local/bin/docker-entrypoint.sh"]
 
   app:
     build: .
