@@ -14,7 +14,7 @@ PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
     </property>
 
     <property name="hibernate.connection.driver_class">
-        com.mysql.jdbc.Driver
+        com.mysql.cj.jdbc.Driver
     </property>
 
     <property name="hibernate.connection.url">
