@@ -1,0 +1,32 @@
+services:
+
+  db:
+    image: mysql:8.0
+    container_name: online-admission-db
+    restart: unless-stopped
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root123
+      MYSQL_DATABASE: online_admission
+      MYSQL_USER: admission
+      MYSQL_PASSWORD: admission123
+
+    ports:
+      - "3306:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  app:
+    build: .
+    container_name: online-admission-app
+    restart: unless-stopped
+
+    depends_on:
+      - db
+
+    ports:
+      - "8080:8080"
+
+volumes:
+  mysql_data:
