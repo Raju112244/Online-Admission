@@ -15,7 +15,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
 
-    entrypoint: ["/bin/bash", "/usr/local/bin/docker-entrypoint.sh"]
+    entrypoint: ["/bin/bash", "/usr/local/bin/docker-entrypoint.sh", "mysqld"]
 
   app:
     build: .
