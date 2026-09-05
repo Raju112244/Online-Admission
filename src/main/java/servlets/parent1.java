@@ -1,82 +1,66 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 
 import MYPACKAGE.parent;
-
+import MYPACKAGE.student;
 
 public class parent1 extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-    
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		
-		int flag=0;
-		 RequestDispatcher rs;
-	
-	//response.setContentType("text/html");
-	//PrintWriter pw = response.getWriter();
-	
+    private static final long serialVersionUID = 1L;
 
-	/* Configuration cfg = new Configuration();
-	 cfg.configure("connect.cfg.xml");	 	
-	 SessionFactory F = cfg.buildSessionFactory();     
-	 Session S = F.openSession();
-	 */
-	
-	Configuration cfg = new Configuration();	  
-	Session S = cfg.configure("connect.cfg.xml").buildSessionFactory().openSession();
-	String Fname = request.getParameter("mailid");
-	String Lname = request.getParameter("password");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String email = request.getParameter("mailid");
+        String password = request.getParameter("password");
+        if (isBlank(email) || isBlank(password)) {
+            request.setAttribute("error", "Enter your email and password.");
+            request.getRequestDispatcher("parent.jsp").forward(request, response);
+            return;
+        }
 
- Query qry =S.createQuery("from parent u where u.mail_id=:VAL"); // named parameter
+        Session session = new Configuration().configure("connect.cfg.xml")
+                .buildSessionFactory().openSession();
+        Query query = session.createQuery(
+                "from parent p where p.mail_id=:EMAIL and p.password=:PASSWORD");
+        query.setParameter("EMAIL", email.trim());
+        query.setParameter("PASSWORD", password);
+        List accounts = query.list();
+        if (!accounts.isEmpty()) {
+            parent account = (parent) accounts.get(0);
+            HttpSession webSession = request.getSession(true);
+            webSession.setAttribute("email", account.getMail_id());
+            webSession.setAttribute("role", "parent");
+            webSession.setAttribute("studentEmail", account.getStudent_mail_id());
+            Query studentQuery = session.createQuery("from student s where s.S_MAILID=:EMAIL");
+            studentQuery.setParameter("EMAIL", account.getStudent_mail_id());
+            List students = studentQuery.list();
+            if (!students.isEmpty()) {
+                student linkedStudent = (student) students.get(0);
+                webSession.setAttribute("studentName", linkedStudent.getS_FNAME() + " " + linkedStudent.getS_LNAME());
+                webSession.setAttribute("studentCourse", linkedStudent.getS_COURSE());
+            }
+            session.close();
+            request.getRequestDispatcher("parent-dashboard.jsp").forward(request, response);
+            return;
+        }
 
- qry.setParameter("VAL", Fname);
- 
-	List L = qry.list();
-	parent u= null;
-	Iterator it = L.iterator();
-	while(it.hasNext())
-		{
-		 u = (parent)it.next();
-		flag = 1;	
-		break;
-		}
-        
-	if(flag == 1 && u.getPassword().equals(Lname))
-	{
-		rs = request.getServletContext().getRequestDispatcher("/main.jsp");
-		 
-			
-						
-	}
-	else
-	{
-		rs = request.getServletContext().getRequestDispatcher("/parent.jsp");		
-	}
-	
-	
-	rs.forward(request, response);
-	  	
-	S.close();
-	//F.close();
-	}
+        session.close();
+        request.setAttribute("error", "Email or password is incorrect.");
+        request.getRequestDispatcher("parent.jsp").forward(request, response);
+    }
 
-	
-
-	}
-
-	
+    private boolean isBlank(String value) {
+        return value == null || value.trim().isEmpty();
+    }
+}

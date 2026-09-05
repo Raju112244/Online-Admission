@@ -46,6 +46,11 @@
   	<description></description>
   	<servlet-class>servlets.parent1</servlet-class>
   </servlet>
+	<servlet>
+		<servlet-name>ParentSignup</servlet-name>
+		<display-name>ParentSignup</display-name>
+		<servlet-class>servlets.ParentSignup</servlet-class>
+	</servlet>
   <servlet-mapping>
   	<servlet-name>Home</servlet-name>
   	<url-pattern>/Home</url-pattern>
@@ -74,4 +79,8 @@
   	<servlet-name>parent1</servlet-name>
   	<url-pattern>/parent1</url-pattern>
   </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ParentSignup</servlet-name>
+		<url-pattern>/ParentSignup</url-pattern>
+	</servlet-mapping>
 </web-app>

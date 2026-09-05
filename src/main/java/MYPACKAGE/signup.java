@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 
 import org.hibernate.Session;
+import org.hibernate.Query;
 import org.hibernate.cfg.Configuration;
 
 
@@ -30,18 +31,31 @@ public class signup extends HttpServlet
 	protected void service(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException 
 	{
-		// TODO Auto-generated method stub
-		RequestDispatcher rs;
-		
+		String email = request.getParameter("Email_Id");
+		String password = request.getParameter("password");
+		String confirmPassword = request.getParameter("confirm_password");
+		if (isBlank(email) || isBlank(password) || !password.equals(confirmPassword)) {
+			request.setAttribute("error", "Enter an email and matching passwords.");
+			request.getRequestDispatcher("Register.jsp").forward(request, response);
+			return;
+		}
+
 		Configuration cfg = new Configuration();
 		Session S = cfg.configure("connect.cfg.xml").buildSessionFactory().openSession();
-		
 		S.getTransaction().begin();
-		
-		
+		Query existing = S.createQuery("from user u where u.mail_id=:VAL");
+		existing.setParameter("VAL", email.trim());
+		if (!existing.list().isEmpty()) {
+			S.getTransaction().rollback();
+			S.close();
+			request.setAttribute("error", "An account already exists for this email.");
+			request.getRequestDispatcher("Register.jsp").forward(request, response);
+			return;
+		}
+
 		String Fname = request.getParameter("First_Name");
 		String Lname = request.getParameter("Last_Name");
-		String MAILID    = request.getParameter("Email_Id");
+		String MAILID    = email.trim();
 		String PHNM = request.getParameter("Mobile_Number");
 		String ADDRESS = request.getParameter("Address");
 		String COURSE = request.getParameter("Course_BCA");
@@ -75,7 +89,13 @@ public class signup extends HttpServlet
 		u.setS_PHNM(PHNM);
 		u.setS_ADDRESS(ADDRESS);
 		u.setS_COURSE(COURSE);
-		S.saveOrUpdate(u);		
+		S.save(u);
+
+		user account = new user();
+		account.setMailid(MAILID);
+		account.setPassword(password);
+		account.setUser("student");
+		S.save(account);
 	
 		
 		S.getTransaction().commit();
@@ -84,7 +104,7 @@ public class signup extends HttpServlet
 		
 		System.out.println("Adding Sucessfully");
 		
-		request.getRequestDispatcher("index.jsp").forward(request, response);
+		request.getRequestDispatcher("student.jsp?registered=true").forward(request, response);
 	
 
 		
@@ -100,5 +120,8 @@ public class signup extends HttpServlet
 	 return disposition.substring(beginIndex, lastIndex);
 	 
  }
+	private boolean isBlank(String value) {
+		return value == null || value.trim().isEmpty();
+	}
 
 }

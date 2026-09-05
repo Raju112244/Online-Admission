@@ -24,6 +24,9 @@ public class parent
 	@Column(name="p_name")
 	private String p_name;
 
+	@Column(name="student_mail_id")
+	private String student_mail_id;
+
 	public int getS_ID() {
 		return S_ID;
 	}
@@ -54,6 +57,14 @@ public class parent
 
 	public void setP_name(String p_name) {
 		this.p_name = p_name;
+	}
+
+	public String getStudent_mail_id() {
+		return student_mail_id;
+	}
+
+	public void setStudent_mail_id(String student_mail_id) {
+		this.student_mail_id = student_mail_id;
 	}
 	
 
