@@ -1,87 +1,56 @@
 package servlets;
 
 import java.io.IOException;
-import java.util.Iterator;
 import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.cfg.Configuration;
 
 import MYPACKAGE.admin;
-import MYPACKAGE.parent;
-import MYPACKAGE.user;
-
-
 
 public class admin1 extends HttpServlet {
-	private static final long serialVersionUID = 1L;
-       
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException 
-	{
-		
-		int flag=0;
-		 RequestDispatcher rs;
-	
-	//response.setContentType("text/html");
-	//PrintWriter pw = response.getWriter();
-	
+    private static final long serialVersionUID = 1L;
 
-	/* Configuration cfg = new Configuration();
-	 cfg.configure("connect.cfg.xml");	 	
-	 SessionFactory F = cfg.buildSessionFactory();     
-	 Session S = F.openSession();
-	 */
-	
-	Configuration cfg = new Configuration();	  
-	Session S = cfg.configure("connect.cfg.xml").buildSessionFactory().openSession();
-	String Fname = request.getParameter("mailid");
-	String Lname = request.getParameter("password");
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        String email = request.getParameter("mailid");
+        String password = request.getParameter("password");
+        if (isBlank(email) || isBlank(password)) {
+            request.setAttribute("error", "Enter your administrator email and password.");
+            request.getRequestDispatcher("admin.jsp").forward(request, response);
+            return;
+        }
 
- Query qry =S.createQuery("from admin u where u.mail_id=:VAL"); // named parameter
+        Session session = new Configuration().configure("connect.cfg.xml")
+                .buildSessionFactory().openSession();
+        Query query = session.createQuery(
+                "from admin a where a.mail_id=:EMAIL and a.password=:PASSWORD");
+        query.setParameter("EMAIL", email.trim());
+        query.setParameter("PASSWORD", password);
+        List accounts = query.list();
 
- qry.setParameter("VAL", Fname);
- 
-	List L = qry.list();
-	admin u= null;
-	Iterator it = L.iterator();
-	while(it.hasNext())
-		{
-		 u = (admin)it.next();
-		flag = 1;	
-		break;
-		}
-        
-	if(flag == 1 && u.getPassword().equals(Lname))
-	{
-		rs = request.getServletContext().getRequestDispatcher("/main.jsp");
-		 
-			
-						
-	}
-	else
-	{
-		rs = request.getServletContext().getRequestDispatcher("/parent.jsp");		
-	}
-	
-	
-	rs.forward(request, response);
-	  	
-	S.close();
-	//F.close();
-	}
+        if (!accounts.isEmpty()) {
+            HttpSession webSession = request.getSession(true);
+            webSession.setAttribute("email", email.trim());
+            webSession.setAttribute("role", "admin");
+            session.close();
+            request.getRequestDispatcher("admin-dashboard.jsp").forward(request, response);
+            return;
+        }
 
-  
-	
-	
+        session.close();
+        request.setAttribute("error", "Administrator email or password is incorrect.");
+        request.getRequestDispatcher("admin.jsp").forward(request, response);
+    }
 
-	
-	}
-
-	
+    private boolean isBlank(String value) {
+        return value == null || value.trim().isEmpty();
+    }
+}
